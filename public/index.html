@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styles_tw.css">
+    <link rel="stylesheet" href="../mdi/css/materialdesignicons.min.css">
+</head>
+
+<body>
+    <div class="max-w-2xl mx-auto bg-slate-100 mt-14">
+        <form id="vehicleForm" class="mb-8 px-4 py-2">
+            <div class="w-full flex flex-row">
+                <div class="w-1/3 px-3 py-3">
+                    <label class="block mb-2 font-bold text-gray-700" for="placas">Placas:</label>
+                    <input type="text" id="placas" name="placas" placeholder="TV0000" class="w-full py-3 px-4 bg-gray-50 border rounded">
+                </div>
+                <div class="w-2/3 px-3 py-3">
+                    <label class="block mb-2 font-bold text-gray-700" for="serie">Número de Serie:</label>
+                    <input type="text" id="serie" name="serie" placeholder="XXXXXXXXXXXXXXXX" class="w-full py-3 px-4 bg-gray-50 border rounded">
+                </div>
+            </div>
+            <div class="w-full flex flex-row">
+                <div class="w-1/3 px-3 py-3">
+                    <label class="block mb-2 font-bold text-gray-700" for="marca">Marca:</label>
+                    <input type="text" id="marca" name="marca" placeholder="Toyota" class="w-full py-3 px-4 bg-gray-50 border rounded">
+                </div>
+                <div class="w-2/3 px-3 py-3">
+                    <label class="block mb-2 font-bold text-gray-700" for="submarca">Submarca:</label>
+                    <input type="text" id="submarca" name="submarca" placeholder="Toyota" class="w-full py-3 px-4 bg-gray-50 border rounded">
+                </div>
+            </div>
+            <div class="w-full flex flex-row">
+                <div class="w-full px-3 py-3">
+                    <label class="block mb-2 font-bold text-gray-700" for="modelo">Modelo:</label>
+                    <input type="number" id="modelo" name="modelo" placeholder="2008" class="w-full py-3 px-4 bg-gray-50 border rounded">
+                </div>
+            </div>
+
+            <div class="mt-8">
+                <label class="block mb-2 font-bold text-gray-700">Motivo de NO APROBADO:</label>
+
+                <!-- Botones para mostrar los formularios correspondientes -->
+                <div class="inline-flex items-center m-2">
+                    <label class="relative flex cursor-pointer items-center rounded-full p-3" 
+                        for="emisiones">
+                        <input id="emisiones" type="radio" value="emisiones" name="tipoDiagnostico" onchange="mostrarFormulario()"
+                            class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border-solid border-2 border-slate-300 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-rsmadsot-700 checked:bg-rsmadsot-700 checked:before:bg-rsmadsot-700 hover:before:opacity-10"/>
+                        <div class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
+                          <span><i class="mdi mdi-check-bold"></i></span>
+                        </div>
+                    </label>
+                    <label class="mt-px cursor-pointer select-none font-bold text-base text-gray-900"
+                        for="emisiones">
+                        Emisiones
+                    </label>
+                </div>
+                <div class="inline-flex items-center m-2">
+                    <label class="relative flex cursor-pointer items-center rounded-full p-3" 
+                        for="obd">
+                        <input id="obd" type="radio" value="obd" name="tipoDiagnostico" onchange="mostrarFormulario()"
+                            class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border-solid border-2 border-slate-300 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-rsmadsot-700 checked:bg-rsmadsot-700 checked:before:bg-rsmadsot-700 hover:before:opacity-10"/>
+                        <div class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
+                          <span><i class="mdi mdi-check-bold"></i></span>
+                        </div>
+                    </label>
+                    <label class="mt-px cursor-pointer select-none font-bold text-base text-gray-900"
+                        for="obd">
+                        OBD
+                    </label>
+                </div>
+                <div class="inline-flex items-center m-2">
+                    <label class="relative flex cursor-pointer items-center rounded-full p-3" 
+                        for="visual">
+                        <input id="visual" type="radio" value="visual" name="tipoDiagnostico" onchange="mostrarFormulario()"
+                            class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border-solid border-2 border-slate-300 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-rsmadsot-700 checked:bg-rsmadsot-700 checked:before:bg-rsmadsot-700 hover:before:opacity-10"/>
+                        <div class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
+                          <span><i class="mdi mdi-check-bold"></i></span>
+                        </div>
+                    </label>
+                    <label class="mt-px cursor-pointer select-none font-bold text-base text-gray-900"
+                        for="visual">
+                        Inspección Visual
+                    </label>
+                </div>
+                <div class="inline-flex items-center m-2">
+                    <label class="relative flex cursor-pointer items-center rounded-full p-3" 
+                        for="especs-mecanicas">
+                        <input id="especs-mecanicas" type="radio" value="especs-mecanicas" name="tipoDiagnostico" onchange="mostrarFormulario()"
+                            class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border-solid border-2 border-slate-300 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-rsmadsot-700 checked:bg-rsmadsot-700 checked:before:bg-rsmadsot-700 hover:before:opacity-10"/>
+                        <div class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
+                          <span><i class="mdi mdi-check-bold"></i></span>
+                        </div>
+                    </label>
+                    <label class="mt-px cursor-pointer select-none font-bold text-base text-gray-900"
+                        for="especs-mecanicas">
+                        Fuera de especificaciones mecanicas
+                    </label>
+                </div>
+            </div>
+
+            <div id="formularioDiagnostico" class="mt-3"></div>
+
+            <!-- Se integra el boton -->
+            <div class="w-full flex items-center mt-8">
+                <button class="w-11/12 bg-rsmadsot-700 hover:bg-rsmadsot-800 rounded-md py-3 mx-auto cursor-pointer"
+                    type="button" id="btnGenerarDiagnostico">
+                    <span class="text-xl font-bold text-white">Generar Diagnóstico</span>
+                </button>
+            </div>
+        </form>
+
+    </div>
+
+    <script src="js/diagnosticos.js"></script>
+</body>
+
+</html>

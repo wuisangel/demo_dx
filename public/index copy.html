@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styles_tw.css">
+    <link rel="stylesheet" href="../mdi/css/materialdesignicons.min.css">
+</head>
+
+<body>
+    <div class="min-h-screen w-full flex items-center justify-center bg-gray-50">
+        <div class="m-2 w-4/5">
+
+            <div class="group flex flex-col gap-2 rounded-lg bg-white p-5 text-black my-2">
+                <div>
+                    <span class="text-xl font-bold">Motivo de CNA</span>
+                </div>
+            </div>
+            <!-- Formulario para generar diagnostico por emisiones -->
+            <div class="group flex flex-col gap-2 rounded-lg bg-white border-2 border-gray-200 p-5 text-black my-2">
+                <div class="flex cursor-pointer items-center justify-between" onclick="toggleForm('form1')">
+                    <span class="text-xl font-bold"> NO APROBADO POR EMISIONES </span>
+                    <span class="text-3xl"> <i class="mdi mdi-chevron-down"></i> </span>
+                </div>
+                <div id="form1" class="h-auto max-h-0 items-center opacity-0 transition-all">
+                    <form action="">
+                        <div class="w-full flex">
+                            <div class="w-1/2 px-2 py-3 flex flex-col">
+                                <span class="text-xl font-bold"> PASS5024</span>
+                                <div class="flex flex-col">
+                                    <label class="text-lg" for="">HC</label>
+                                    <input class="py-3 px-4 mb-3 bg-gray-200 w-1/2 rounded" type="text" placeholder="100">
+                                </div>
+                                <div class="flex flex-col">
+                                    <label class="text-lg" for="">O2</label>
+                                    <input class="py-3 px-4 mb-3 bg-gray-200 w-1/2 rounded" type="text" placeholder="0.2">
+                                </div>
+                                <div class="flex flex-col">
+                                    <label class="text-lg" for="">CO</label>
+                                    <input class="py-3 px-4 mb-3 bg-gray-200 w-1/2 rounded" type="text" placeholder="0.7">
+                                </div>
+                                <div class="flex flex-col">
+                                    <label class="text-lg" for="">CO2</label>
+                                    <input class="py-3 px-4 mb-3 bg-gray-200 w-1/2 rounded" type="text" placeholder="14.5">
+                                </div>
+                                <div class="flex flex-col">
+                                    <label class="text-lg" for="">CO2+CO (Dilución)</label>
+                                    <input class="py-3 px-4 mb-3 bg-gray-200 w-1/2 rounded" type="text" placeholder="14.5">
+                                </div>
+                                <div class="flex flex-col">
+                                    <label class="text-lg" for="">NOX</label>
+                                    <input class="py-3 px-4 mb-3 bg-gray-200 w-1/2 rounded" type="text" placeholder="500">
+                                </div>
+                                <div class="flex flex-col">
+                                    <label class="text-lg" for="">lambda</label>
+                                    <input class="py-3 px-4 mb-3 bg-gray-200 w-1/2 rounded" type="text" placeholder="1.09">
+                                </div>
+                            </div>
+                            <div class="w-1/2 px-2 py-3 flex flex-col">
+                                <span class="text-xl font-bold"> PASS5024</span>
+                                <div class="flex flex-col">
+                                    <label class="text-lg" for="">HC</label>
+                                    <input class="py-3 px-4 mb-3 bg-gray-200 w-1/2 rounded" type="text" placeholder="100">
+                                </div>
+                                <div class="flex flex-col">
+                                    <label class="text-lg" for="">O2</label>
+                                    <input class="py-3 px-4 mb-3 bg-gray-200 w-1/2 rounded" type="text" placeholder="0.2">
+                                </div>
+                                <div class="flex flex-col">
+                                    <label class="text-lg" for="">CO</label>
+                                    <input class="py-3 px-4 mb-3 bg-gray-200 w-1/2 rounded" type="text" placeholder="0.7">
+                                </div>
+                                <div class="flex flex-col">
+                                    <label class="text-lg" for="">CO2</label>
+                                    <input class="py-3 px-4 mb-3 bg-gray-200 w-1/2 rounded" type="text" placeholder="14.5">
+                                </div>
+                                <div class="flex flex-col">
+                                    <label class="text-lg" for="">CO2+CO (Dilución)</label>
+                                    <input class="py-3 px-4 mb-3 bg-gray-200 w-1/2 rounded" type="text" placeholder="14.5">
+                                </div>
+                                <div class="flex flex-col">
+                                    <label class="text-lg" for="">NOX</label>
+                                    <input class="py-3 px-4 mb-3 bg-gray-200 w-1/2 rounded" type="text" placeholder="500">
+                                </div>
+                                <div class="flex flex-col">
+                                    <label class="text-lg" for="">lambda</label>
+                                    <input class="py-3 px-4 mb-3 bg-gray-200 w-1/2 rounded" type="text" placeholder="1.09">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Formulario para generar diagnostico por inspeccion visual -->
+            <div class="group flex flex-col gap-2 rounded-lg bg-white border-2 border-gray-200 p-5 text-black my-2">
+                <div class="flex cursor-pointer items-center justify-between" onclick="toggleForm('form2')">
+                    <span class="text-xl font-bold"> NO APROBADO POR INSPECCION VISUAL </span>
+                    <span class="text-3xl"> <i class="mdi mdi-chevron-down"></i> </span>
+                </div>
+                <div id="form2" class="h-auto max-h-0 items-center opacity-0 transition-all">
+                    <form action="">
+                        <div class="w-full flex">
+                            <div class="w-full px-2 py-3 flex flex-col">
+                                <span class="text-xl font-bold"> Dispositivos afectados</span>
+                                <div class="inline-flex items-center m-2">
+                                    <label class="mt-px cursor-pointer select-none font-normal text-xl text-gray-900"
+                                        for="filtro-aire">
+                                        Portafiltro de aire
+                                    </label>
+                                    <label class="relative flex cursor-pointer items-center rounded-full p-3" 
+                                        for="filtro-aire">
+                                        <input id="filtro-aire" type="checkbox" 
+                                            class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-rsmadsot-700 checked:bg-rsmadsot-700 checked:before:bg-rsmadsot-700 hover:before:opacity-10"/>
+                                        <div class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
+                                          <span><i class="mdi mdi-check-bold"></i></span>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="inline-flex items-center m-2">
+                                    <label class="mt-px cursor-pointer select-none font-normal text-xl text-gray-900"
+                                        for="tapon-combustible">
+                                        Tapón de combustible
+                                    </label>
+                                    <label class="relative flex cursor-pointer items-center rounded-full p-3" 
+                                        for="tapon-combustible">
+                                        <input id="tapon-combustible" type="checkbox" 
+                                            class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-rsmadsot-700 checked:bg-rsmadsot-700 checked:before:bg-rsmadsot-700 hover:before:opacity-10"/>
+                                        <div class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
+                                          <span><i class="mdi mdi-check-bold"></i></span>
+                                        </div>
+                                    </label>
+                                </div>
+                                
+                                <div class="flex flex-col flex-wrap">
+                                    <div class="inline-flex items-center m-2">
+                                        <label class="mt-px cursor-pointer select-none font-normal text-xl text-gray-900"
+                                            for="sitema-escape">
+                                            Fugas en sistema de escape
+                                        </label>
+                                        <label class="relative flex cursor-pointer items-center rounded-full p-3" 
+                                            for="sitema-escape">
+                                            <input id="sitema-escape" type="checkbox" 
+                                                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-rsmadsot-700 checked:bg-rsmadsot-700 checked:before:bg-rsmadsot-700 hover:before:opacity-10"/>
+                                            <div class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
+                                              <span><i class="mdi mdi-check-bold"></i></span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="inline-flex items-center m-2">
+                                        <label class="mt-px cursor-pointer select-none font-normal text-xl text-gray-900"
+                                            for="neumaticos">
+                                            Desperfectos en Neumáticos
+                                        </label>
+                                        <label class="relative flex cursor-pointer items-center rounded-full p-3" 
+                                            for="neumaticos">
+                                            <input id="neumaticos" type="checkbox" 
+                                                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-rsmadsot-700 checked:bg-rsmadsot-700 checked:before:bg-rsmadsot-700 hover:before:opacity-10"/>
+                                            <div class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
+                                              <span><i class="mdi mdi-check-bold"></i></span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="inline-flex items-center m-2">
+                                        <label class="mt-px cursor-pointer select-none font-normal text-xl text-gray-900"
+                                            for="tapon-aceite">
+                                            Tapón del dispositivo de aceite
+                                        </label>
+                                        <label class="relative flex cursor-pointer items-center rounded-full p-3" 
+                                            for="tapon-aceite">
+                                            <input id="tapon-aceite" type="checkbox" 
+                                                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-rsmadsot-700 checked:bg-rsmadsot-700 checked:before:bg-rsmadsot-700 hover:before:opacity-10"/>
+                                            <div class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
+                                              <span><i class="mdi mdi-check-bold"></i></span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    
+                                    
+                                    <div class="inline-flex items-center m-2">
+                                        <label class="mt-px cursor-pointer select-none font-normal text-xl text-gray-900"
+                                            for="fuga-refrigerante">
+                                            Fuga de fluidos en líquido refrigerante
+                                        </label>
+                                        <label class="relative flex cursor-pointer items-center rounded-full p-3" 
+                                            for="fuga-refrigerante">
+                                            <input id="fuga-refrigerante" type="checkbox" 
+                                                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-rsmadsot-700 checked:bg-rsmadsot-700 checked:before:bg-rsmadsot-700 hover:before:opacity-10"/>
+                                            <div class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
+                                              <span><i class="mdi mdi-check-bold"></i></span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="inline-flex items-center m-2">
+                                        <label class="mt-px cursor-pointer select-none font-normal text-xl text-gray-900"
+                                            for="bayoneta">
+                                            Bayoneta de medición del nivel de aceite en el cárter
+                                        </label>
+                                        <label class="relative flex cursor-pointer items-center rounded-full p-3" 
+                                            for="bayoneta">
+                                            <input id="bayoneta" type="checkbox" 
+                                                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-rsmadsot-700 checked:bg-rsmadsot-700 checked:before:bg-rsmadsot-700 hover:before:opacity-10"/>
+                                            <div class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
+                                              <span><i class="mdi mdi-check-bold"></i></span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="inline-flex items-center m-2">
+                                        <label class="mt-px cursor-pointer select-none font-normal text-xl text-gray-900"
+                                            for="componentes-alterados">
+                                            Componente de control de emisiones del automóvil alterados
+                                        </label>
+                                        <label class="relative flex cursor-pointer items-center rounded-full p-3" 
+                                            for="componentes-alterados">
+                                            <input id="componentes-alterados" type="checkbox" 
+                                                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-rsmadsot-700 checked:bg-rsmadsot-700 checked:before:bg-rsmadsot-700 hover:before:opacity-10"/>
+                                            <div class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
+                                              <span><i class="mdi mdi-check-bold"></i></span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Formulario para generar diagnostico por OBD -->
+            <div class="group flex flex-col gap-2 rounded-lg bg-white border-2 border-gray-200 p-5 text-black my-2">
+                <div class="flex cursor-pointer items-center justify-between" onclick="toggleForm('form3')">
+                    <span class="text-xl font-bold"> NO APROBADO POR OBD </span>
+                    <span class="text-3xl"> <i class="mdi mdi-chevron-down"></i> </span>
+                </div>
+                <div id="form3" class="h-auto max-h-0 items-center opacity-0 transition-all">
+                    <form action="">
+                        <div class="w-full flex">
+                            <div class="w-full px-2 py-3 flex flex-col">
+                                <span class="text-xl font-bold"> Sistemas afectados</span>
+                                <div class="inline-flex items-center m-2">
+                                    <label class="mt-px cursor-pointer select-none font-normal text-xl text-gray-900"
+                                        for="catalitico">
+                                        Sistema Convertidor Catalítico
+                                    </label>
+                                    <label class="relative flex cursor-pointer items-center rounded-full p-3" 
+                                        for="catalitico">
+                                        <input id="catalitico" type="checkbox" 
+                                            class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-rsmadsot-700 checked:bg-rsmadsot-700 checked:before:bg-rsmadsot-700 hover:before:opacity-10"/>
+                                        <div class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
+                                          <span><i class="mdi mdi-check-bold"></i></span>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="inline-flex items-center m-2">
+                                    <label class="mt-px cursor-pointer select-none font-normal text-xl text-gray-900"
+                                        for="combustible">
+                                        Sistema de Combustible
+                                    </label>
+                                    <label class="relative flex cursor-pointer items-center rounded-full p-3" 
+                                        for="combustible">
+                                        <input id="combustible" type="checkbox" 
+                                            class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-rsmadsot-700 checked:bg-rsmadsot-700 checked:before:bg-rsmadsot-700 hover:before:opacity-10"/>
+                                        <div class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
+                                          <span><i class="mdi mdi-check-bold"></i></span>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="flex flex-col flex-wrap">
+                                    <div class="inline-flex items-center m-2">
+                                        <label class="mt-px cursor-pointer select-none font-normal text-xl text-gray-900"
+                                            for="cilindros">
+                                            Sistema de Ignición en Cilindros
+                                        </label>
+                                        <label class="relative flex cursor-pointer items-center rounded-full p-3" 
+                                            for="cilindros">
+                                            <input id="cilindros" type="checkbox" 
+                                                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-rsmadsot-700 checked:bg-rsmadsot-700 checked:before:bg-rsmadsot-700 hover:before:opacity-10"/>
+                                            <div class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
+                                              <span><i class="mdi mdi-check-bold"></i></span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="inline-flex items-center m-2">
+                                        <label class="mt-px cursor-pointer select-none font-normal text-xl text-gray-900"
+                                            for="integrales">
+                                            Sistema de Componentes Integrales
+                                        </label>
+                                        <label class="relative flex cursor-pointer items-center rounded-full p-3" 
+                                            for="integrales">
+                                            <input id="integrales" type="checkbox" 
+                                                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-rsmadsot-700 checked:bg-rsmadsot-700 checked:before:bg-rsmadsot-700 hover:before:opacity-10"/>
+                                            <div class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
+                                              <span><i class="mdi mdi-check-bold"></i></span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="inline-flex items-center m-2">
+                                        <label class="mt-px cursor-pointer select-none font-normal text-xl text-gray-900"
+                                            for="oxigeno">
+                                            Sistema de Sensores de Oxígeno
+                                        </label>
+                                        <label class="relative flex cursor-pointer items-center rounded-full p-3" 
+                                            for="oxigeno">
+                                            <input id="oxigeno" type="checkbox" 
+                                                class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-rsmadsot-700 checked:bg-rsmadsot-700 checked:before:bg-rsmadsot-700 hover:before:opacity-10"/>
+                                            <div class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
+                                              <span><i class="mdi mdi-check-bold"></i></span>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleForm(id) {
+            const form = document.getElementById(id);
+            const allForms = document.querySelectorAll('.group > div[id^="form"]');
+            
+            allForms.forEach((f) => {
+                if (f.id === id) {
+                    if (form.classList.contains('max-h-0')) {
+                        form.classList.remove('max-h-0');
+                        form.classList.add('max-h-screen', 'opacity-100');
+                    } else {
+                        form.classList.remove('max-h-screen', 'opacity-100');
+                        form.classList.add('max-h-0');
+                    }
+                } else {
+                    f.classList.remove('max-h-screen', 'opacity-100');
+                    f.classList.add('max-h-0');
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
