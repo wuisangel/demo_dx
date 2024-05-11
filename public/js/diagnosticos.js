@@ -1,3 +1,6 @@
+// Url de la API
+const api_url = 'https://diagnostico-cna-8b7k.onrender.com'
+
 // Funcion que carga los formularios desde otros archivos html
 async function cargarFormulario(url) {
     const response = await fetch(url);
@@ -65,7 +68,7 @@ document.getElementById('btnGenerarDiagnostico').addEventListener('click', funct
 
 function get_dx_emi(data) {
 
-    const url = 'http://127.0.0.1:8000/api/v1/diagnosticoCNA/generar';
+    const url = api_url + '/api/v1/diagnosticoCNA/generar';
     const data_emisions = {
         "placas": data.get('placas'),
         "serie": data.get('serie'),
@@ -135,7 +138,7 @@ function get_dx_emi(data) {
 
 function get_dx_obd(datos, obds) {
 
-    const url = 'http://127.0.0.1:8000/api/v1/diagnosticoCNA/generarOBD';
+    const url = api_url + '/api/v1/diagnosticoCNA/generarOBD';
     const data = {
         "placas": datos.get('placas'),
         "serie": datos.get('serie'),
