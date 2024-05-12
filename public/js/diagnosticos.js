@@ -29,13 +29,10 @@ function mostrarFormulario() {
         </div>
         `;
     }
-
-    // formularioDiagnostico.innerHTML = formularioHTML;
 }
 
 document.getElementById('btnGenerarDiagnostico').addEventListener('click', function() {
     const tipoDiagnostico = document.querySelector('input[name="tipoDiagnostico"]:checked').value;
-    // Aquí puedes agregar la lógica para generar el diagnóstico
 
     var form_emisiones = document.getElementById("vehicleForm");
     var datos = new FormData(form_emisiones);
@@ -60,9 +57,6 @@ document.getElementById('btnGenerarDiagnostico').addEventListener('click', funct
         get_dx_obd(datos, obds)
 
     }
-
-
-    // alert('Diagnóstico generado correctamente' + tipoDiagnostico);
 });
 
 
