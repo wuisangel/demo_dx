@@ -15,7 +15,7 @@ function mostrarFormulario() {
     let formularioHTML = '';
 
     if (tipoDiagnostico === 'emisiones') {
-       cargarFormulario('./forms/emisiones.html');
+        cargarFormulario('./forms/emisiones.html');
     } else if (tipoDiagnostico === 'obd') {
         cargarFormulario('./forms/obd.html');
     } else if (tipoDiagnostico === 'visual') {
@@ -98,7 +98,7 @@ function get_dx_emi(data) {
     fetch(url, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify(data_emisions)
     })
@@ -157,7 +157,7 @@ function get_dx_obd(datos, obds) {
     fetch(url, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify(data)
     })
