@@ -38,7 +38,8 @@ document.getElementById('btnGenerarDiagnostico').addEventListener('click', funct
         width: 100,
         didOpen: () => {
             Swal.showLoading();
-        }
+        },
+        allowOutsideClick: false
     });
 
     const tipoDiagnostico = document.querySelector('input[name="tipoDiagnostico"]:checked').value;
