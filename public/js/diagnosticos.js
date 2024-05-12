@@ -48,18 +48,12 @@ document.getElementById('btnGenerarDiagnostico').addEventListener('click', funct
     if (tipoDiagnostico === 'emisiones') {
         get_dx_emi(datos);
     }else if (tipoDiagnostico === 'obd') {
-        console.log(datos.get('placas'));
         
         var catalitico = document.getElementById('catalitico').checked ? 1 : 0;
         var combustible = document.getElementById('combustible').checked ? 1 : 0;
         var cilindros = document.getElementById('cilindros').checked ? 1 : 0;
         var integrales = document.getElementById('integrales').checked ? 1 : 0;
         var oxigeno = document.getElementById('oxigeno').checked ? 1 : 0;
-        console.log('Catalitico: ' + catalitico);
-        console.log('Combustible: ' + combustible);
-        console.log('Cilindros: ' + cilindros);
-        console.log('Integrales: ' + integrales);
-        console.log('Oxigeno: ' + oxigeno);
 
         var obds = [catalitico, combustible, cilindros, integrales, oxigeno]
 
@@ -107,12 +101,7 @@ function get_dx_emi(data) {
     })
     .then(response => response.json())
     .then(data => {
-        // Aquí puedes acceder a los datos de la respuesta
-        console.log(data);
-        console.log(data.placas);
-        console.log(data.serie);
-        console.log(data.estado);
-        console.log(data.estado_des);
+        
 
         // Decodificar la cadena base64
         var binaryString = atob(data.pdf_b64);
@@ -193,12 +182,6 @@ function get_dx_obd(datos, obds) {
     })
     .then(response => response.json())
     .then(data => {
-        // Aquí puedes acceder a los datos de la respuesta
-        console.log(data);
-        console.log(data.placas);
-        console.log(data.serie);
-        console.log(data.estado);
-        console.log(data.estado_des);
 
         // Decodificar la cadena base64
         var binaryString = atob(data.pdf_b64);
