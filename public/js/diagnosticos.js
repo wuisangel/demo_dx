@@ -32,6 +32,15 @@ function mostrarFormulario() {
 }
 
 document.getElementById('btnGenerarDiagnostico').addEventListener('click', function() {
+
+    // Alerta de carga
+    Swal.fire({
+        width: 100,
+        didOpen: () => {
+            Swal.showLoading();
+        }
+    });
+
     const tipoDiagnostico = document.querySelector('input[name="tipoDiagnostico"]:checked').value;
 
     var form_emisiones = document.getElementById("vehicleForm");
@@ -121,11 +130,38 @@ function get_dx_emi(data) {
         // Crear una URL para el blob
         var url = URL.createObjectURL(blob);
 
+        // Se cierra el Swal antes de abrir el PDF
+        Swal.close();
+
+        // Muestra el Swal de éxito
+        Swal.fire({
+            title: '<p class="text-2xl">Éxito</p>',
+            html: '<p class="text-lg">Diagnóstico generado correctamente</p>',
+            icon: 'success',
+            confirmButtonText: '<p class="font-bold text-lg">Aceptar</p>',
+            confirmButtonColor: '#406959',
+            focusConfirm: true
+        });
+
         // Abrir el PDF en una nueva ventana
         window.open(url);
 
     })
     .catch(error => {
+
+        //Cierra el Swal cuando se resuelve de manera erronea
+        Swal.close();
+
+        // Muestra el Swal de error
+        Swal.fire({
+            title: '<p class="text-2xl">Error</p>',
+            html: '<p class="text-lg">Error durante el proceso: <span>'+ error +'</span></p>',
+            icon: 'error',
+            confirmButtonText: '<p class="font-bold text-lg">Aceptar</p>',
+            confirmButtonColor: '#b8123d',
+            focusConfirm: true
+        });
+
         console.error('Error:', error);
     });
 }
@@ -177,6 +213,19 @@ function get_dx_obd(datos, obds) {
         // Crear un blob a partir del array buffer
         var blob = new Blob([bytes], { type: 'application/pdf' });
 
+        // Se cierra el Swal antes de abrir el PDF
+        Swal.close();
+
+        // Muestra el Swal de éxito
+        Swal.fire({
+            title: '<p class="text-2xl">Éxito</p>',
+            html: '<p class="text-lg">Diagnóstico generado correctamente</p>',
+            icon: 'success',
+            confirmButtonText: '<p class="font-bold text-lg">Aceptar</p>',
+            confirmButtonColor: '#406959',
+            focusConfirm: true
+        });
+
         // Crear una URL para el blob
         var url = URL.createObjectURL(blob);
 
@@ -185,6 +234,20 @@ function get_dx_obd(datos, obds) {
 
     })
     .catch(error => {
+
+        //Cierra el Swal cuando se resuelve de manera erronea
+        Swal.close();
+
+        // Muestra el Swal de error
+        Swal.fire({
+            title: '<p class="text-2xl">Error</p>',
+            html: '<p class="text-lg">Error durante el proceso: <span>'+ error +'</span></p>',
+            icon: 'error',
+            confirmButtonText: '<p class="font-bold text-lg">Aceptar</p>',
+            confirmButtonColor: '#b8123d',
+            focusConfirm: true
+        });
+
         console.error('Error:', error);
     });
 }
