@@ -60,6 +60,21 @@ document.getElementById('btnGenerarDiagnostico').addEventListener('click', funct
 
         get_dx_obd(datos, obds)
 
+    }else if (tipoDiagnostico === 'visual') {
+        var filtro_aire =  document.getElementById('filtro-aire').checked ? 1 : 0;
+        var tapon_combustible =  document.getElementById('tapon-combustible').checked ? 1 : 0;
+        var sistema_escape =  document.getElementById('sistema-escape').checked ? 1 : 0;
+        var tapon_aceite =  document.getElementById('tapon-aceite').checked ? 1 : 0;
+        var neumaticos =  document.getElementById('neumaticos').checked ? 1 : 0;
+        var fuga_refrigerante =  document.getElementById('fuga-refrigerante').checked ? 1 : 0;
+        var bayoneta =  document.getElementById('bayoneta').checked ? 1 : 0;
+        var componentes_alterados =  document.getElementById('componentes-alterados').checked ? 1 : 0;
+
+        var visuales = [sistema_escape, filtro_aire, tapon_aceite, tapon_combustible,
+            bayoneta, fuga_refrigerante, neumaticos, componentes_alterados
+        ];
+
+        get_dx_visual(datos, visuales);
     }
 });
 
@@ -212,6 +227,89 @@ function get_dx_obd(datos, obds) {
 
             return;
         }
+
+        // Decodificar la cadena base64
+        var binaryString = atob(data.pdf_b64);
+
+        // Convertir la cadena decodificada en un array buffer
+        var length = binaryString.length;
+        var bytes = new Uint8Array(length);
+        for (var i = 0; i < length; i++) {
+            bytes[i] = binaryString.charCodeAt(i);
+        }
+
+        // Crear un blob a partir del array buffer
+        var blob = new Blob([bytes], { type: 'application/pdf' });
+
+        // Se cierra el Swal antes de abrir el PDF
+        Swal.close();
+
+        // Muestra el Swal de éxito
+        Swal.fire({
+            title: '<p class="text-2xl">Éxito</p>',
+            html: '<p class="text-lg">Diagnóstico generado correctamente</p>',
+            icon: 'success',
+            confirmButtonText: '<p class="font-bold text-lg">Aceptar</p>',
+            confirmButtonColor: '#406959',
+            focusConfirm: true
+        });
+
+        // Crear una URL para el blob
+        var url = URL.createObjectURL(blob);
+
+        // Abrir el PDF en una nueva ventana
+        window.open(url);
+
+    })
+    .catch(error => {
+
+        //Cierra el Swal cuando se resuelve de manera erronea
+        Swal.close();
+
+        // Muestra el Swal de error
+        Swal.fire({
+            title: '<p class="text-2xl">Error</p>',
+            html: '<p class="text-lg">Error durante el proceso: <span>'+ error +'</span></p>',
+            icon: 'error',
+            confirmButtonText: '<p class="font-bold text-lg">Aceptar</p>',
+            confirmButtonColor: '#b8123d',
+            focusConfirm: true
+        });
+
+        console.error('Error:', error);
+    });
+}
+
+// Funcion que genera el diagnostico de inspeccion visual mediante la API
+function get_dx_visual(datos, visuales) {
+    const url = api_url + '/api/v1/diagnosticoCNA/generarVisual';
+    const data = {
+        "placas": datos.get('placas'),
+        "serie": datos.get('serie'),
+        "marca": datos.get('marca'),
+        "submarca": datos.get('submarca'),
+        "modelo": datos.get('modelo'),
+        "visual": {
+            "v_escape": visuales[0],
+            "v_filtro": visuales[1],
+            "v_taceite": visuales[2],
+            "v_tcombustible": visuales[3],
+            "v_bayoneta": visuales[4],
+            "v_fluidos": visuales[5],
+            "v_neumaticos": visuales[6],
+            "v_cemisiones": visuales[7]
+        }
+    };
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
 
         // Decodificar la cadena base64
         var binaryString = atob(data.pdf_b64);
