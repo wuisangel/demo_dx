@@ -311,6 +311,21 @@ function get_dx_visual(datos, visuales) {
     .then(response => response.json())
     .then(data => {
 
+        // Valida si el vehiculo esta en buenas condiciones
+        if (data.estado != 0) {
+            Swal.fire({
+                title: '<p class="text-2xl">Aviso</p>',
+                html: '<p class="text-lg">' + data.des_estado +
+                    ' Por lo que no se puede generar un diagnóstico valido.</p>',
+                icon: 'warning',
+                confirmButtonText: '<p class="font-bold text-lg">Aceptar</p>',
+                confirmButtonColor: '#406959',
+                focusConfirm: true
+            });
+
+            return;
+        }
+
         // Decodificar la cadena base64
         var binaryString = atob(data.pdf_b64);
 
