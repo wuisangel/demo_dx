@@ -34,10 +34,18 @@
                     <input type="text" id="submarca" name="submarca" placeholder="Toyota" class="w-full py-3 px-4 bg-gray-50 border rounded">
                 </div>
             </div>
-            <div class="w-full flex flex-row">
-                <div class="w-full px-3 py-3">
+            <div class="w-full flex flex-col sm:flex-row">
+                <div class="w-full sm:w-1/2 px-3 py-3">
                     <label class="block mb-2 font-bold text-gray-700" for="modelo">Modelo:</label>
                     <input type="number" id="modelo" name="modelo" placeholder="2008" class="w-full py-3 px-4 bg-gray-50 border rounded">
+                </div>
+                <div class="w-full sm:w-1/2 px-3 py-3">
+                    <label class="block mb-2 font-bold text-gray-700" for="modelo">Combustible:</label>
+                    <select class="py-3 px-4 mb-3 bg-gray-50 w-full rounded" name="combustible" id="combustible">
+                        <option value="1">1 - Gasolina</option>
+                        <option value="2">2 - Diesel</option>
+                        <option value="3">3 - Gas LP, Gas Natural, otro combustible...</option>
+                    </select>
                 </div>
             </div>
 
