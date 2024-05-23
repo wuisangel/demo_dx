@@ -1,15 +1,15 @@
 <!-- <form id="form_emisiones"> -->
     <div class="w-full flex flex-col">
         <div class="w-full px-2 py-3 flex flex-col">
-            <span class="text-base font-semibold mb-3"> Protocolo</span>
-            <select class="py-3 px-4 mb-3 bg-gray-50 w-full rounded" name="protocolo" id="protocolo">
-                <option value="2">2 - Dinámico</option>
-                <option value="7">7 - Estático</option>
+            <span class="text-base font-bold mb-3"> Protocolo</span>
+            <select class="py-3 px-4 mb-3 bg-gray-50 w-full rounded font-semibold" name="protocolo" id="protocolo" onchange="cambiarEmisiones()">
+                <option value="7">7 - Dinámico</option>
+                <option value="2">2 - Estático</option>
             </select>
         </div>
-        <div class="w-full flex-col sm:flex-row">
+        <div class="w-full flex flex-col sm:flex-row">
             <div class="w-full sm:w-1/2 px-2 py-3 flex flex-col">
-                <span class="text-lg font-bold mb-3"> PASS5024</span>
+                <span id="emisiones-1" class="text-base font-bold mb-3"> PASS5024</span>
                 <div class="flex flex-col">
                     <label class="text-base" for="">HC</label>
                     <input class="py-3 px-4 mb-3 bg-gray-50 w-2/3 rounded" type="number" id="hc_5024" name="hc_5024" placeholder="100" min="0">
@@ -40,7 +40,7 @@
                 </div>
             </div>
             <div class="w-full sm:w-1/2 px-2 py-3 flex flex-col">
-                <span class="text-lg font-bold mb-3"> PASS2540</span>
+                <span id="emisiones-2" class="text-base font-bold mb-3"> PASS2540</span>
                 <div class="flex flex-col">
                     <label class="text-base" for="">HC</label>
                     <input class="py-3 px-4 mb-3 bg-gray-50 w-2/3 rounded" type="number" id="hc_2540" name="hc_2540" placeholder="100" min="0">

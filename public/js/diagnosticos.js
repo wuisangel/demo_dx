@@ -1,5 +1,6 @@
 // Url de la API
-const api_url = 'https://diagnostico-cna-8b7k.onrender.com'
+// const api_url = 'https://diagnostico-cna-8b7k.onrender.com'
+const api_url = 'http://127.0.0.1:8000'
 
 // Funcion que carga los formularios desde otros archivos html
 async function cargarFormulario(url) {
@@ -28,6 +29,20 @@ function mostrarFormulario() {
             </span>
         </div>
         `;
+    }
+}
+
+function cambiarEmisiones() {
+    const selectProtocolo = document.getElementById('protocolo');
+    const emisiones1_text = document.getElementById('emisiones-1');
+    const emisiones2_text = document.getElementById('emisiones-2');
+
+    if (selectProtocolo.value === '7') {
+        emisiones1_text.textContent = 'PASS5024';
+        emisiones2_text.textContent = 'PASS2540';
+    } else if (selectProtocolo.value === '2') {
+        emisiones1_text.textContent = 'Ralentí';
+        emisiones2_text.textContent = 'Crucero';
     }
 }
 
@@ -81,6 +96,9 @@ document.getElementById('btnGenerarDiagnostico').addEventListener('click', funct
 
 function get_dx_emi(data) {
 
+    console.log(data.get('combustible'));
+    console.log(data.get('protocolo'));
+
     const url = api_url + '/api/v1/diagnosticoCNA/generar';
     const data_emisions = {
         "placas": data.get('placas'),
@@ -88,6 +106,8 @@ function get_dx_emi(data) {
         "marca": data.get('marca'),
         "submarca": data.get('submarca'),
         "modelo": data.get('modelo'),
+        "combustible": data.get('combustible'),
+        "protocolo": data.get('protocolo'),
         "emisiones_5024": {
             "hc": data.get('hc_5024'),
             "o2": data.get('o2_5024'),
