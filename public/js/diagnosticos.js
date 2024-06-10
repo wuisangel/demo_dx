@@ -66,7 +66,7 @@ document.getElementById('btnGenerarDiagnostico').addEventListener('click', funct
     }else if (tipoDiagnostico === 'obd') {
         
         var catalitico = document.getElementById('catalitico').checked ? 1 : 0;
-        var combustible = document.getElementById('combustible').checked ? 1 : 0;
+        var combustible = document.getElementById('obd_combustible').checked ? 1 : 0;
         var cilindros = document.getElementById('cilindros').checked ? 1 : 0;
         var integrales = document.getElementById('integrales').checked ? 1 : 0;
         var oxigeno = document.getElementById('oxigeno').checked ? 1 : 0;
