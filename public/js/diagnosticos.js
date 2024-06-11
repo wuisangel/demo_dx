@@ -108,7 +108,7 @@ function get_dx_emi(data) {
         "modelo": data.get('modelo'),
         "combustible": data.get('combustible'),
         "protocolo": data.get('protocolo'),
-        "emisiones_5024": {
+        "emisiones_prueba1": {
             "hc": data.get('hc_5024'),
             "o2": data.get('o2_5024'),
             "co": data.get('co_5024'),
@@ -117,7 +117,7 @@ function get_dx_emi(data) {
             "nox": data.get('nox_5024'),
             "Lambda": data.get('lambda_5024')
         },
-        "emisiones_2540": {
+        "emisiones_prueba2": {
             "hc": data.get('hc_2540'),
             "o2": data.get('o2_2540'),
             "co": data.get('co_2540'),
