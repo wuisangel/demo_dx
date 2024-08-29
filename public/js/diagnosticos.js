@@ -1,6 +1,6 @@
 // Url de la API
-// const api_url = 'https://diagnostico-cna-8b7k.onrender.com'
-const api_url = 'https://diagnostico-cna-e999d7fefc63.herokuapp.com'
+const api_url = 'https://diagnostico-cna.onrender.com'
+// const api_url = 'https://diagnostico-cna-e999d7fefc63.herokuapp.com'
 
 // Funcion que carga los formularios desde otros archivos html
 async function cargarFormulario(url) {
