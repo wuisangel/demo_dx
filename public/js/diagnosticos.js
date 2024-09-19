@@ -214,7 +214,7 @@ function get_dx_obd(datos, obds) {
         "marca": datos.get('marca'),
         "submarca": datos.get('submarca'),
         "modelo": datos.get('modelo'),
-        "obd": {
+        "monitores_obd": {
             "obd_catalitico": obds[0],
             "obd_combustible": obds[1],
             "obd_cilindros": obds[2],
@@ -309,7 +309,7 @@ function get_dx_visual(datos, visuales) {
         "marca": datos.get('marca'),
         "submarca": datos.get('submarca'),
         "modelo": datos.get('modelo'),
-        "visual": {
+        "dispositivos_visual": {
             "v_escape": visuales[0],
             "v_filtro": visuales[1],
             "v_taceite": visuales[2],
